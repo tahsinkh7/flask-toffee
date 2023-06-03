@@ -4,7 +4,7 @@ import requests
 
 import os
 
-app = Flask(name)
+app = Flask(__name__)
 
 API_ENDPOINT = "https://bldcmprod-cdn.toffeelive.com/"
 
@@ -18,7 +18,7 @@ headers = {
 
 def credit():
 
-    return "(Toffee-API) Personal "
+    return "(Toffee-API) Made With ❤️ By Proximity BD "
 
 @app.route("/auto/<string:channel_id>.m3u8")
 
@@ -48,6 +48,6 @@ def handle_single(path):
 
     return myresponse
 
-if name == "main":
+if __name__ == "__main__":
 
     app.run(debug=True, port=os.getenv("PORT", default=5000))
